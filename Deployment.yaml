@@ -21,4 +21,6 @@ spec:
       - name: multitool
         image: wbitt/network-multitool
         command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+        ports:
+        - name: multitool
           containerPort: 8080
