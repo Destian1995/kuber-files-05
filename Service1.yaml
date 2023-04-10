@@ -12,3 +12,4 @@ spec:
     - name: multitool
       port: 9002
       targetPort: 8080
+  type: NodePort
