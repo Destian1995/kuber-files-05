@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: myapp
+  labels:
+    app: myapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: myapp
   template:
     metadata:
       labels:
-        app: my-app
+        app: myapp
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-      - name: multitool
-        image: wbitt/network-multitool
-        ports:
-        - containerPort: 8080
-        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+        - name: nginx
+          image: nginx:latest
+        - name: multitool
+          image: wbitt/network-multitool
+          command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
