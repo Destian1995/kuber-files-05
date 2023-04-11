@@ -21,4 +21,5 @@ spec:
         image: wbitt/network-multitool
         ports:
         - containerPort: 9002
-        command: ["multitool"]
+        command: [ "/bin/bash", "-ce", "multitool --tail" ]
+
