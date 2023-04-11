@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: my-deployment
 spec:
   replicas: 3
   selector:
@@ -13,10 +13,38 @@ spec:
         app: my-app
     spec:
       containers:
-        - name: busybox 
-          image: busybox
-        - name: multitool
-          image: praqma/network-multitool
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          failureThreshold: 3
+      - name: multitool
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          failureThreshold: 3
 
 
 
