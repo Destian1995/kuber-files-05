@@ -21,4 +21,5 @@ spec:
           image: wbitt/network-multitool
           ports:
           - containerPort: 8080
+          command: ["tail -f /dev/null" ]
           
