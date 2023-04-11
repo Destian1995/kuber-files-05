@@ -18,6 +18,7 @@ spec:
           image: wbitt/network-multitool
           ports:
           - containerPort: 8080
+      initContainers:    
         - name: nginx
           image: nginx:latest
           ports:
