@@ -23,4 +23,6 @@ spec:
           image: wbitt/network-multitool
           ports:
           - containerPort: 8080
+          command: ['sh', '-c', 'until nslookup my-app-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for my-app-service; sleep 2; done;']
+
 
