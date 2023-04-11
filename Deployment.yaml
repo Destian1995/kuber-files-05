@@ -14,13 +14,9 @@ spec:
     spec:
       containers:
         - name: busybox 
-          image: busybox:latest
-          ports:
-          - containerPort: 80
+          image: busybox
         - name: multitool
-          image: multitool:latest
-          ports:
-          - containerPort: 8080
+          image: praqma/network-multitool
 
 
 
