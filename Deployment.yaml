@@ -1,27 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: my-app
+  name: my-pod
 spec:
-  restartPolicy: Never
-  replicas: 3
-  selector:
-    matchLabels:
-      app: my-app
-  template:
-    metadata:
-      labels:
-        app: my-app
-    spec:
-      containers:
-        - name: multitool
-          image: wbitt/network-multitool
-          ports:
-          - containerPort: 8080
-      initContainers:    
-        - name: nginx
-          image: nginx:latest
-          ports:
-          - containerPort: 80
-
+  containers:
+    - name: multitool
+      image: wbitt/network-multitool
+      ports:
+        - containerPort: 8080
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
       
