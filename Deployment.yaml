@@ -16,10 +16,10 @@ spec:
       - name: nginx
         image: nginx:latest
         ports:
-        - containerPort: 9001
+        - containerPort: 80
       - name: multitool
         image: wbitt/network-multitool
         ports:
-        - containerPort: 9002
+        - containerPort: 8080
         command: [ "/bin/bash", "-ce", "multitool --tail" ]
 
