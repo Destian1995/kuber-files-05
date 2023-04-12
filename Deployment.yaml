@@ -19,6 +19,12 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 5
+            initialDelaySeconds: 60
         - name: multitool
           image: wbitt/network-multitool
           ports:
@@ -26,6 +32,6 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 8080
             periodSeconds: 5
             nitialDelaySeconds: 60
