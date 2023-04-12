@@ -13,17 +13,17 @@ spec:
         app: my-app
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - image: nginx:latest
+          name: nginx
           ports:
           - containerPort: 80   
-        - name: multitool
-          image: wbitt/network-multitool
+        - image: wbitt/network-multitool
+          name: multitool
           ports:
           - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8080
-            periodSeconds: 10
-            timeoutSeconds: 5
+        #  readinessProbe:
+        #    httpGet:
+         #     path: /
+          #    port: 8080
+          #  periodSeconds: 10
+          #  timeoutSeconds: 5
