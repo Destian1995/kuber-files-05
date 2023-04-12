@@ -15,12 +15,12 @@ spec:
         app: myapp
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx
+      - name: nginx
+        image: nginx:latest
         ports:
           - containerPort: 80
-      - image: wbitt/network-multitool
-        name: multitool
+      - name: multitool
+        image: wbitt/network-multitool
         ports:
           - containerPort: 8080
         #  readinessProbe:
