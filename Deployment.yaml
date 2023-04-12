@@ -34,4 +34,5 @@ spec:
               path: /
               port: 8080
             periodSeconds: 5
-            nitialDelaySeconds: 60
+            initialDelaySeconds: 60
+
