@@ -2,26 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: my-app
-  name: my-app
+    app: myapp
+  name: myapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: myapp
   template:
     metadata:
       labels:
-        app: my-app
+        app: myapp
     spec:
       containers:
-        - image: nginx:latest
-          name: nginx
-          ports:
-          - containerPort: 80   
-        - image: wbitt/network-multitool
-          name: multitool
-          ports:
+      - image: nginx:latest
+        name: nginx
+        ports:
+          - containerPort: 80
+      - image: wbitt/network-multitool
+        name: multitool
+        ports:
           - containerPort: 8080
         #  readinessProbe:
         #    httpGet:
