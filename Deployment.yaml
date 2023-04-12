@@ -19,6 +19,7 @@ spec:
         - containerPort: 80
       - name: multitool
         image: wbitt/network-multitool
+        ports:
         - containerPort: 8080
         command:
         - sleep
