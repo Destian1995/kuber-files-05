@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: myapp
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: myapp
@@ -13,13 +13,14 @@ spec:
         app: myapp
     spec:
       containers:
-        - name: multitool
-          image: wbitt/network-multitool
-      initContainers:
-        - name: nginx
-          image: nginx:latest
-          ports:
-            - containerPort: 80
-      
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+      - name: multitool
+        image: praqma/network-multitool
+        ports:
+        - containerPort: 8080
+
 
 
