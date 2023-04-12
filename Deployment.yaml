@@ -13,14 +13,13 @@ spec:
         app: myapp
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        - name: multitool
+          image: wbitt/network-multitool
       initContainers:
-      - name: multitool
-        image: wbitt/network-multitool
-        command: [ "/bin/sh", "-c", "--" ]
-        args: [ "while true; do echo $(date -u) >> /var/log/time.log; sleep 5; done;" ]
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+      
 
 
