@@ -12,22 +12,14 @@ spec:
       labels:
         app: myapp
     spec:
-      containers:
-      - name: multitool
-        image: wbitt/network-multitool
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        resources:
-          limits:
-            memory: "512Mi"
-        ports:
-        - containerPort: 8080
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
+       containers:
+         - name: nginx
+           image: nginx:latest
+           ports:
+           - containerPort: 80
+         - name: multitool
+           image: wbitt/network-multitool
+           command:
+           - sleep
+           - "3600"
        
